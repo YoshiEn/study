@@ -4,7 +4,8 @@ from slackbot.bot import listen_to      # チャネル内発言で反応する�
 from slackbot.bot import default_reply  # 該当する応答がない場合に反応するデコーダ
 
 from libs import my_functions           # 外部関数の読み込み
-
+from sympy.parsing.sympy_parser import parse_expr
+    
 # @respond_to('string')     bot宛のメッセージ
 #                           stringは正規表現が可能 「r'string'」
 # @listen_to('string')      チャンネル内のbot宛以外の投稿
@@ -22,8 +23,17 @@ from libs import my_functions           # 外部関数の読み込み
 #                              文字列中に':'はいらない
 @respond_to('たこ焼き')
 def mention_func(message):
-    message.send('髙野が作ってくれるってよ') # メンション
+    message.send('髙野が作ってくれるってよ')
 
 @listen_to('燻製')
 def listen_func(message):
-    message.reply('スモーキングガン買ってきてくれる？')      # ただの投稿
+	message.react('50th_kunsei_party')
+	message.reply('そういえばAmaz◯Nで加藤家にスモーキングガン送ったよ！')
+
+@listen_to('^大')
+def listen_daichi(message):
+	message.react('dai_chan_yobu_toki_sennyou_special')
+	
+@listen_to('^計算お願い')
+def sympy_respond(message):
+	message.reply("{} = {}".format((message.body['text'])[5:], str(parse_expr((message.body['text'])[5:]))))
