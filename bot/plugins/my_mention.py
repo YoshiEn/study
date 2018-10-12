@@ -33,35 +33,44 @@ def listen_func(message):
 def listen_daichi(message):
 	message.react('dai_chan_yobu_toki_sennyou_special')
 
-@listen_to('21')
+@listen_to('25')
 def listen_attack(message):
 	message.react('gyakuten_no_chance_ga_arukamo_ne')
 	message.react('dai_chan_yobu_toki_sennyou_special')
 	message.react('su')
 
-@listen_to('^坂さん')
+@listen_to('坂さん')
 def listen_sakasan(message):
 	message.react('nanika_you_ka_hatena')
 	message.react('yoshisan_tte_shitai_hito_sennyou')
 
-@listen_to('^𠮷さん')
+@listen_to('𠮷さん')
 def listen_yoshisan(message):
 	message.react('nanika_you_ka_hatena')
 	message.react('saka_san_yobitai_toki_sennyou')
 
-@listen_to('^加藤')
+@listen_to('加藤')
 def listen_satoshi(message):
 	message.react('i_love_you_hand_sign')
 	message.react('ka_to_no_roast_beef')
 
-@listen_to('^髙野')
+@listen_to('髙野')
 def listen_kono(message):
 	message.react('space_you_ni_douzo')
 
-@listen_to('^高野')
+@listen_to('今井')
+def listen_kono(message):
+	message.react('imai_san_favorite_group')
+
+@listen_to('ザキさん')
+@listen_to('宮崎')
+def listen_kono(message):
+	message.react('zaraki_san')
+
+@listen_to('高野')
 def listen_kono(message):
 	message.reply('高じゃなくて髙だってば！')
-	
+		
 @listen_to('^_math')
 def sympy_respond(message):
 	try:
