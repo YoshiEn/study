@@ -5,6 +5,7 @@ import slackbot_settings
 
 if __name__ == "__main__":
 	slack = Slacker(slackbot_settings.API_TOKEN)
+	
 	slack.chat.post_message(
 		'kmbx099_亀ちゃんbot刷新対応',
 		'坂ちゃんだよぉぉぉぉぉっぉぉぉぉぉぉぉぉぉぉぉおぉぉぉ！',
